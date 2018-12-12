@@ -98,6 +98,18 @@
                selectByExampleQueryId="true">
         </table>
 
+        <table tableName="biz_first" domainObjectName="BizFirst"
+               enableCountByExample="true" enableUpdateByExample="true"
+               enableDeleteByExample="true" enableSelectByExample="true"
+               selectByExampleQueryId="true">
+        </table>
+
+        <table tableName="biz_first_meta" domainObjectName="BizFirstMeta"
+               enableCountByExample="true" enableUpdateByExample="true"
+               enableDeleteByExample="true" enableSelectByExample="true"
+               selectByExampleQueryId="true">
+        </table>
+
 
 
     </context>
