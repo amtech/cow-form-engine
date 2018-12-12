@@ -11,41 +11,57 @@
  Target Server Version : 50717
  File Encoding         : utf-8
 
- Date: 12/12/2018 21:50:24 PM
+ Date: 12/12/2018 22:49:49 PM
 */
 
 SET NAMES utf8;
 SET FOREIGN_KEY_CHECKS = 0;
 
 -- ----------------------------
---  Table structure for `order`
+--  Table structure for `biz_first`
 -- ----------------------------
-DROP TABLE IF EXISTS `order`;
-CREATE TABLE `order` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '主键',
-  `order_no` varchar(32) NOT NULL COMMENT '订单号',
-  `order_amount` double(16,2) NOT NULL COMMENT '订单金额',
-  `order_address` varchar(64) NOT NULL COMMENT '订单地址',
-  `commodity_no` varchar(32) NOT NULL COMMENT '商品编号',
-  `commoditf_quantity` int(8) NOT NULL COMMENT '商品数量',
-  `order_date` datetime NOT NULL COMMENT '订单日期',
-  `order_payer` varchar(32) NOT NULL COMMENT '订单付款人',
+DROP TABLE IF EXISTS `biz_first`;
+CREATE TABLE `biz_first` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `code` varchar(64) DEFAULT NULL,
+  `a` varchar(64) DEFAULT NULL,
+  `b` varchar(64) DEFAULT NULL,
+  `c` varchar(64) DEFAULT NULL,
+  `d` varchar(64) DEFAULT NULL,
+  `e` varchar(64) DEFAULT NULL,
+  `f` varchar(64) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
---  Table structure for `order_meta`
+--  Table structure for `biz_first_meta`
 -- ----------------------------
-DROP TABLE IF EXISTS `order_meta`;
-CREATE TABLE `order_meta` (
-  `column_name` varchar(64) NOT NULL COMMENT '数据表列名',
-  `column_type` varchar(32) NOT NULL COMMENT '表字段类型',
-  `column_length` int(8) NOT NULL COMMENT '表字段长度',
-  `column_null` int(2) NOT NULL COMMENT '表字段是否可以为空。0：可以为空；1：不可以为空',
-  `column_enable` int(2) NOT NULL COMMENT '表字段是否启用。0：不启用；1：启用。',
-  `field_zh_cn_name` varchar(32) NOT NULL COMMENT '字段中文名',
-  `field_en_us_name` varchar(32) NOT NULL COMMENT '字段英文名',
-  `column_query_enable` int(2) NOT NULL COMMENT '表字段是否是查询条件s'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+DROP TABLE IF EXISTS `biz_first_meta`;
+CREATE TABLE `biz_first_meta` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `code` varchar(64) DEFAULT NULL,
+  `parent_code` varchar(64) DEFAULT NULL,
+  `c_name` varchar(64) DEFAULT NULL,
+  `c_type` varchar(64) DEFAULT NULL,
+  `length` int(8) DEFAULT NULL,
+  `is_null` int(2) DEFAULT NULL,
+  `is_enable` int(2) DEFAULT NULL,
+  `is_query` int(2) DEFAULT NULL,
+  `field_name` varchar(64) DEFAULT NULL,
+  `field_type` varchar(64) DEFAULT NULL,
+  `field_cn_name` varchar(64) DEFAULT NULL,
+  `source_type` int(2) DEFAULT NULL,
+  `source_value` varchar(64) DEFAULT NULL,
+  `view_json` varchar(256) DEFAULT NULL,
+  `valid_rule` varchar(128) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+--  Records of `biz_first_meta`
+-- ----------------------------
+BEGIN;
+INSERT INTO `biz_first_meta` VALUES ('1', '123', '', 'a', 'varchar', '32', '0', '1', '1', 'field_a', 'String', '字段a', '0', null, null, null), ('2', '234', null, 'b', 'varchar', '32', '0', '1', '1', 'field_b', 'String', '字段b', '0', null, null, null), ('3', '345', null, 'c', 'varchar', '32', '0', '1', '1', 'field_c', 'String', '字段c', '0', null, null, null);
+COMMIT;
 
 SET FOREIGN_KEY_CHECKS = 1;
